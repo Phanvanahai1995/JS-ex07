@@ -45,18 +45,15 @@ var numbers2 = [3, 7];
 
 const newArr = function (arr1, arr2, arr3 = []) {
   arr3 = arr1.concat(arr2).sort();
-  arr3.shift();
-  arr3.pop();
-  return arr3;
+  return arr3.length % 2 === 0
+    ? (arr3[arr3.length / 2 - 1] + arr3[arr3.length / 2]) / 2
+    : arr3[(arr3.length - 1) / 2];
 };
 
-const newNumber = newArr(numbers1, numbers2);
-
-const result = newNumber.reduce((init, number) => {
-  return init + number;
-}, 0);
-
-console.log(result / newNumber.length);
+console.log(newArr([1, 2], [3, 4]));
+console.log(newArr([1, 2], [3, 7]));
+console.log(newArr([1, 3], [2]));
+console.log(newArr([1, 2, 5, 3], [4, 7, 8, 9]));
 
 // Bài 3
 
